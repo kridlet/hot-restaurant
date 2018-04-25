@@ -45,3 +45,8 @@ app.get("/api/reservations", function(res, req){
 
 
 //final - call api from html (jquery get and post)
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+  
