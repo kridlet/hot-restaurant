@@ -1,0 +1,14 @@
+.jumbotron{
+    text-align:center;
+}
+.blue{
+    background-color:blue;
+    border-color:blue;
+}
+
+#waitlist{
+    position:relative;
+    left:100px;
+   bottom:30px;
+    
+}
