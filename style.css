@@ -1,14 +1,23 @@
 .jumbotron{
     text-align:center;
 }
+<<<<<<< HEAD
 .blue{
     background-color:blue;
     border-color:blue;
 }
+=======
+
+>>>>>>> fca7546a40ff54d40920e72157dae106a5cceb88
 
 #waitlist{
     position:relative;
     left:100px;
    bottom:30px;
     
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> fca7546a40ff54d40920e72157dae106a5cceb88
