@@ -28,15 +28,15 @@ app.get("/", function(req, res){
 })
 //tables route
 
-app.get("/tables", function(req, res){
-    res.sendFile(path.join(__dirname, "tables.html"));
+app.get("/table", function(req, res){
+    res.sendFile(path.join(__dirname, "table.html"));
 })
 //reserve route
 app.get("/reserve", function(req, res){
     res.sendFile(path.join(__dirname, "reservation.html"));
 })
 
-app.get("/api/reservations", function(res, req){
+app.get("/api/reservations", function(req, res){
     return res.json(reservations);
 });
 
