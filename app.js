@@ -40,20 +40,34 @@ app.get("/api/reservations", function(req, res){
     return res.json(reservations);
 });
 
+app.get("/api/waitlist", function(req, res){
+    return res.json(waitlist);
+})
+
 //retrieve data
 //post data
 // Create New Characters - takes in JSON input
 app.post("/api/reservations", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
-    var newTable = req.body;
+    var newReservation = req.body;
   
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();  
-    characters.push(newTable);
-    res.json(newTable);
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();  
+
+    if (reservations.length < 6) {
+        reservations.push(newReservation);
+        
+    } else {
+        reservations.push(waitlist);
+    }
+
+        res.json(newReservation);
+        res.json(waitlist);
   });
+
+
 
 //final - call api from html (jquery get and post)
 
