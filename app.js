@@ -9,14 +9,35 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var reservations = [{
-    name: "Dirk",
-    phone_number: "602-327-3802",
-    email: "d@irk.com",
-    id: "1"
-}];
+var reservations = [
+    {
+        name: "Dirk",
+        phone_number: "602-327-3802",
+        email: "d@irk.com",
+        id: "1"
+    },
+    {
+        name: "Sara",
+        phone_number: "602-327-3801",
+        email: "s@irk.com",
+        id: "2"
+    }
+];
 
-var waitlist  = [];
+var waitlist  = [
+    {
+        name: "Ant",
+        phone_number: "602-327-3803",
+        email: "d@irk.com",
+        id: "3"
+    },
+    {
+        name: "Matt",
+        phone_number: "602-327-3804",
+        email: "s@irk.com",
+        id: "3"
+    }
+];
 
 
 //routes
@@ -48,23 +69,21 @@ app.get("/api/waitlist", function(req, res){
 //post data
 // Create New Characters - takes in JSON input
 app.post("/api/reservations", function(req, res) {
+    console.log(req.body);
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     var newReservation = req.body;
   
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();  
 
-    if (reservations.length < 6) {
+    if (reservations.length < 5) {
         reservations.push(newReservation);
-        
     } else {
-        reservations.push(waitlist);
+        waitlist.push(newReservation);
     }
-
-        res.json(newReservation);
-        res.json(waitlist);
+        // res.json(newReservation);
+        // res.json(waitlist);
   });
 
 
